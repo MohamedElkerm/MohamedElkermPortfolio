@@ -493,7 +493,7 @@
             <h3 class="text-xl font-bold mb-3">Mobile App Development</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               Native-quality Flutter apps with smooth animations, optimized
-              performance, and scalable foundations.
+              performance, and production-ready, scalable foundations.
             </p>
           </div>
           <div class="glass-card p-8 rounded-2xl hover:-translate-y-1">
@@ -501,7 +501,8 @@
             <h3 class="text-xl font-bold mb-3">Clean Architecture</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               Well-structured codebases using clean architecture, SOLID
-              principles, and testable layers.
+              principles, and clear boundaries that support team collaboration
+              and growth.
             </p>
           </div>
           <div class="glass-card p-8 rounded-2xl hover:-translate-y-1">
@@ -509,7 +510,7 @@
             <h3 class="text-xl font-bold mb-3">Performance Optimization</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               Faster startup times, efficient rendering, memory optimization,
-              and smooth scrolling at scale.
+              and smooth scrolling in real production scenarios.
             </p>
           </div>
           <div class="glass-card p-8 rounded-2xl hover:-translate-y-1">
@@ -517,15 +518,15 @@
             <h3 class="text-xl font-bold mb-3">API Integration</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               REST & GraphQL integrations, authentication flows, and secure data
-              handling.
+              handling between mobile apps and backend systems.
             </p>
           </div>
           <div class="glass-card p-8 rounded-2xl hover:-translate-y-1">
             <div class="mb-6 text-primary text-3xl">☁️</div>
             <h3 class="text-xl font-bold mb-3">Backend & Cloud</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
-              Firebase, serverless functions, push notifications, and scalable
-              backend services.
+              Firebase, serverless functions, push notifications, and supporting
+              backend services that power mobile products.
             </p>
           </div>
           <div class="glass-card p-8 rounded-2xl hover:-translate-y-1">
@@ -533,7 +534,7 @@
             <h3 class="text-xl font-bold mb-3">Testing & Maintainability</h3>
             <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
               Unit, widget, and integration testing with long-term
-              maintainability in mind.
+              maintainability and production stability in mind.
             </p>
           </div>
         </div>
@@ -773,7 +774,11 @@
           </div>
 
           <div class="glass-card p-8 rounded-3xl relative shadow-2xl">
-            <form class="space-y-6">
+            <p
+              id="form-status"
+              class="hidden text-sm font-medium mb-4 px-4 py-2 rounded-lg"
+            ></p>
+            <form id="contact-form" class="space-y-6" novalidate>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label
@@ -784,9 +789,14 @@
                   <input
                     type="text"
                     id="name"
-                    class="w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                    name="name"
+                    required
+                    class="contact-input w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
                     placeholder="Mohamed Ahmed"
                   />
+                  <p id="name-error" class="text-red-500 text-sm hidden">
+                    Name is required
+                  </p>
                 </div>
                 <div class="space-y-2">
                   <label
@@ -797,9 +807,14 @@
                   <input
                     type="email"
                     id="email"
-                    class="w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+                    name="email"
+                    required
+                    class="contact-input w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
                     placeholder="mohamed@example.com"
                   />
+                  <p id="email-error" class="text-red-500 text-sm hidden">
+                    Please enter a valid email address
+                  </p>
                 </div>
               </div>
               <div class="space-y-2">
@@ -810,17 +825,32 @@
                 >
                 <textarea
                   id="message"
+                  name="message"
                   rows="5"
-                  class="w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
+                  required
+                  class="contact-input w-full bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder:text-slate-500 dark:placeholder:text-slate-600 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
+                <p id="message-error" class="text-red-500 text-sm hidden">
+                  Message is required
+                </p>
               </div>
+              <!-- Get your free key at https://web3forms.com - enter mohamedelkerm584@gmail.com -->
+              <input
+                type="hidden"
+                name="access_key"
+                id="web3forms-access-key"
+                value=""
+              />
               <button
-                type="button"
-                class="btn-primary w-full py-4 text-base mt-2"
+                type="submit"
+                id="submit-btn"
+                class="btn-primary w-full py-4 text-base mt-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
-                <span class="material-symbols-outlined text-xl">send</span>
+                <span id="btn-text">Send Message</span>
+                <span class="material-symbols-outlined text-xl" id="btn-icon"
+                  >send</span
+                >
               </button>
             </form>
           </div>
@@ -1001,6 +1031,92 @@
           const isDark = html.classList.toggle("dark");
           localStorage.setItem("theme", isDark ? "dark" : "light");
         });
+
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        const accessKey = document
+          .getElementById("web3forms-access-key")
+          .value.trim();
+
+        if (!accessKey) {
+          showFormStatus(
+            "Please add your Web3Forms access key. Get a free key at web3forms.com",
+            "error"
+          );
+          return;
+        }
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Structuring the email body cleanly
+        const formattedBody = `
+New Message from Mohamed Elkerm Website
+
+Sender Details:
+----------------
+Name: ${name}
+Email: ${email}
+
+Message:
+----------------
+${message}
+          `;
+
+        const submitBtn = document.getElementById("submit-btn");
+        const btnText = document.getElementById("btn-text");
+        const btnIcon = document.getElementById("btn-icon");
+
+        submitBtn.disabled = true;
+        btnText.textContent = "Sending...";
+        btnIcon.textContent = "hourglass_empty";
+
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              access_key: accessKey,
+              subject: `New Contact from ${name} - Mohamed Elkerm Website`,
+              from_name: "Mohamed Elkerm Website", // Shows as the sender name in your inbox
+              replyto: email, // Allows you to reply directly to the user's email
+              message: formattedBody, // Injects all details right into the email body
+            }),
+          });
+          const data = await res.json();
+
+          if (data.success) {
+            showFormStatus(
+              "Message sent successfully! I'll get back to you soon.",
+              "success"
+            );
+            contactForm.reset();
+            contactForm.querySelectorAll(".contact-input").forEach((el) => {
+              el.classList.remove("border-red-500", "focus:ring-red-500/50");
+            });
+            document
+              .querySelectorAll("[id$=-error]")
+              .forEach((el) => el.classList.add("hidden"));
+          } else {
+            showFormStatus(
+              data.message || "Failed to send. Please try again.",
+              "error"
+            );
+          }
+        } catch (err) {
+          showFormStatus(
+            "Network error. Please check your connection and try again.",
+            "error"
+          );
+        } finally {
+          submitBtn.disabled = false;
+          btnText.textContent = "Send Message";
+          btnIcon.textContent = "send";
+        }
+      });
     </script>
   </body>
 </html>
