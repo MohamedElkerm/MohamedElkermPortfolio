@@ -76,8 +76,43 @@
           @apply flex items-center justify-center gap-2 glass-card text-slate-800 dark:text-white px-6 py-3 rounded-xl font-bold transition-all hover:bg-slate-200/50 dark:hover:bg-white/10;
         }
         .nav-link {
-          @apply text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors;
+          position: relative;
+          font-weight: 500;
+          color: #000; /* Light mode */
+          transition: color 0.25s ease, transform 0.2s ease;
         }
+
+        /* Dark mode */
+        html.dark .nav-link {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-link:hover {
+          color: #5925f4;
+          transform: translateY(-1px);
+        }
+
+        .nav-link::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -6px;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #5925f4, #7c5cff);
+          transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+          width: 100%;
+          left: 0;
+        }
+
+        .nav-link.active {
+          color: #5925f4;
+        }
+
         .badge {
           @apply px-3 py-1 text-xs font-semibold rounded-full;
         }
@@ -116,9 +151,10 @@
 
           <div class="hidden md:flex items-center gap-10">
             <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#stack">Stack</a>
-            <a class="nav-link" href="#work">Work</a>
             <a class="nav-link" href="#leadership">Experience</a>
+            <a class="nav-link" href="#stack">Expertise</a>
+            <a class="nav-link" href="#work">Work</a>
+            <a class="nav-link" href="#contactUs">Contact Us</a>
           </div>
 
           <div class="flex items-center gap-3">
@@ -136,7 +172,9 @@
               >
             </button>
             <a
-              href="#contact"
+              href="https://drive.google.com/uc?export=download&id=1Pxr1ljhWRtxV-xEmYl-kvKzDBmgdWKYI"
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn-primary px-6 py-2.5 text-sm tracking-wide"
             >
               Resume
@@ -220,6 +258,109 @@
               <div
                 class="absolute inset-0 rounded-[2.3rem] bg-gradient-to-t from-black/60 via-transparent to-transparent"
               ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20 px-6 max-w-7xl mx-auto" id="about">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div class="flex flex-col gap-6">
+            <h2
+              class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight"
+            >
+              Bridging the gap between
+              <span class="text-primary italic">complex engineering</span> and
+              business goals.
+            </h2>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed"
+            >
+              From initial architecture to final deployment, I focus on building
+              products that scale and delight users. Transitioning from pure
+              code to product-focused engineering allows me to think about the
+              "why" as much as the "how".
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+              <div class="flex items-start gap-4">
+                <div
+                  class="p-2 icon-box bg-primary/10 border border-primary/20 text-primary"
+                >
+                  <span class="material-symbols-outlined">bolt</span>
+                </div>
+                <div>
+                  <h3 class="text-slate-900 dark:text-white font-bold mb-1">
+                    Performance First
+                  </h3>
+                  <p class="text-slate-500 dark:text-slate-500 text-sm">
+                    Optimizing every frame for 60fps fluidity.
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div
+                  class="p-2 icon-box bg-primary/10 border border-primary/20 text-primary"
+                >
+                  <span class="material-symbols-outlined">database</span>
+                </div>
+                <div>
+                  <h3 class="text-slate-900 dark:text-white font-bold mb-1">
+                    Scalable Core
+                  </h3>
+                  <p class="text-slate-500 text-sm">
+                    Future-proof architecture with zero debt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div
+              class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full"
+            ></div>
+            <div
+              class="relative glass-card p-4 rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <div class="flex items-center gap-2 mb-4 px-2">
+                <div class="flex gap-1.5">
+                  <div class="size-2.5 rounded-full bg-red-500/50"></div>
+                  <div class="size-2.5 rounded-full bg-amber-500/50"></div>
+                  <div class="size-2.5 rounded-full bg-emerald-500/50"></div>
+                </div>
+                <div
+                  class="bg-white/5 px-3 py-1 rounded text-[10px] text-slate-500 font-mono tracking-tighter ml-2"
+                >
+                  AppArchitecture.dart
+                </div>
+              </div>
+              <div
+                class="p-6 bg-slate-100 dark:bg-[#0c0a1a] rounded-xl font-mono text-sm leading-relaxed text-slate-700 dark:text-slate-300"
+              >
+                <p class="text-purple-400">
+                  <span class="text-blue-400">class</span> MobileAppEngine {
+                </p>
+                <p class="pl-4">
+                  <span class="text-blue-400">final bool</span> scalable =
+                  <span class="text-amber-300">true</span>;
+                </p>
+                <p class="pl-4">
+                  <span class="text-blue-400">final String</span> performance =
+                  <span class="text-amber-300">"High"</span>;
+                </p>
+                <p class="pl-4 mt-2">
+                  <span class="text-blue-400">void</span> deploy() {
+                </p>
+                <p class="pl-8 text-slate-500">// Core pipeline</p>
+                <p class="pl-8">architecture.validate();</p>
+                <p class="pl-8">infrastructure.optimize();</p>
+                <p class="pl-8">
+                  cloud.scale(users:
+                  <span class="text-amber-300">100000</span>);
+                </p>
+                <p class="pl-4">}</p>
+                <p class="text-purple-400">}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -374,109 +515,6 @@
         </div>
       </section>
 
-      <section class="py-20 px-6 max-w-7xl mx-auto" id="about">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div class="flex flex-col gap-6">
-            <h2
-              class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight"
-            >
-              Bridging the gap between
-              <span class="text-primary italic">complex engineering</span> and
-              business goals.
-            </h2>
-            <p
-              class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed"
-            >
-              From initial architecture to final deployment, I focus on building
-              products that scale and delight users. Transitioning from pure
-              code to product-focused engineering allows me to think about the
-              "why" as much as the "how".
-            </p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-              <div class="flex items-start gap-4">
-                <div
-                  class="p-2 icon-box bg-primary/10 border border-primary/20 text-primary"
-                >
-                  <span class="material-symbols-outlined">bolt</span>
-                </div>
-                <div>
-                  <h3 class="text-slate-900 dark:text-white font-bold mb-1">
-                    Performance First
-                  </h3>
-                  <p class="text-slate-500 dark:text-slate-500 text-sm">
-                    Optimizing every frame for 60fps fluidity.
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div
-                  class="p-2 icon-box bg-primary/10 border border-primary/20 text-primary"
-                >
-                  <span class="material-symbols-outlined">database</span>
-                </div>
-                <div>
-                  <h3 class="text-slate-900 dark:text-white font-bold mb-1">
-                    Scalable Core
-                  </h3>
-                  <p class="text-slate-500 text-sm">
-                    Future-proof architecture with zero debt.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative">
-            <div
-              class="absolute -inset-4 bg-primary/10 blur-3xl rounded-full"
-            ></div>
-            <div
-              class="relative glass-card p-4 rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <div class="flex items-center gap-2 mb-4 px-2">
-                <div class="flex gap-1.5">
-                  <div class="size-2.5 rounded-full bg-red-500/50"></div>
-                  <div class="size-2.5 rounded-full bg-amber-500/50"></div>
-                  <div class="size-2.5 rounded-full bg-emerald-500/50"></div>
-                </div>
-                <div
-                  class="bg-white/5 px-3 py-1 rounded text-[10px] text-slate-500 font-mono tracking-tighter ml-2"
-                >
-                  AppArchitecture.dart
-                </div>
-              </div>
-              <div
-                class="p-6 bg-slate-100 dark:bg-[#0c0a1a] rounded-xl font-mono text-sm leading-relaxed text-slate-700 dark:text-slate-300"
-              >
-                <p class="text-purple-400">
-                  <span class="text-blue-400">class</span> MobileAppEngine {
-                </p>
-                <p class="pl-4">
-                  <span class="text-blue-400">final bool</span> scalable =
-                  <span class="text-amber-300">true</span>;
-                </p>
-                <p class="pl-4">
-                  <span class="text-blue-400">final String</span> performance =
-                  <span class="text-amber-300">"High"</span>;
-                </p>
-                <p class="pl-4 mt-2">
-                  <span class="text-blue-400">void</span> deploy() {
-                </p>
-                <p class="pl-8 text-slate-500">// Core pipeline</p>
-                <p class="pl-8">architecture.validate();</p>
-                <p class="pl-8">infrastructure.optimize();</p>
-                <p class="pl-8">
-                  cloud.scale(users:
-                  <span class="text-amber-300">100000</span>);
-                </p>
-                <p class="pl-4">}</p>
-                <p class="text-purple-400">}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="relative py-32 px-6 max-w-7xl mx-auto" id="stack">
         <div class="text-center mb-20">
           <p class="text-primary font-semibold tracking-widest uppercase mb-4">
@@ -559,154 +597,470 @@
           </div>
         </div>
 
-        <div class="space-y-24">
-          <div class="flex flex-col lg:flex-row items-center gap-12 group">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+          <!-- Project 1: The Venue Ladies -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
             <div
-              class="w-full lg:w-3/5 relative overflow-hidden rounded-2xl glass-card p-2 aspect-video flex items-center justify-center"
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent group-hover:opacity-100 opacity-0 transition-opacity"
-              ></div>
-              <img
-                alt="Sleek fintech mobile app dashboard"
-                class="rounded-xl shadow-2xl w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-              />
-            </div>
-            <div class="w-full lg:w-2/5 space-y-6">
-              <div class="flex flex-wrap gap-2">
-                <span class="badge bg-primary/20 text-primary">Fintech</span>
-                <span class="badge bg-slate-200/60 dark:bg-white/5"
-                  >Mobile</span
-                >
-              </div>
-              <h3 class="text-3xl font-bold text-slate-900 dark:text-white">
-                Zenith Wallet
-              </h3>
-              <p
-                class="text-slate-600 dark:text-gray-400 text-lg leading-relaxed"
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
               >
-                A multi-currency crypto wallet supporting 20+ blockchains.
-                Developed with React Native, implementing complex biometrics and
-                secure key storage.
-              </p>
-              <div class="flex items-center gap-6 pt-4">
-                <button class="btn-primary">
-                  View Case Study
-                  <span class="material-symbols-outlined text-lg"
-                    >open_in_new</span
-                  >
-                </button>
-                <a
-                  class="text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-white flex items-center gap-2 font-semibold transition"
-                  href="#"
-                >
-                  <span class="material-symbols-outlined text-2xl">code</span>
-                  GitHub
-                </a>
-              </div>
+                Mobile App
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              The Venue Ladies
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A production-ready mobile app that streamlines online service
+              booking for women-focused venues with real-time communication and
+              secure payments tightly integrated into operations.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · iOS &amp; Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Django Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Frappe ERP</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >SkipCash Payments</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >WebSocket Chat · OneSignal</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.the.venue.laadies"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+              <a
+                href="https://apps.apple.com/eg/app/the-venue-ladies/id6755197469"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                App Store
+              </a>
             </div>
           </div>
 
-          <div
-            class="flex flex-col-reverse lg:flex-row items-center gap-12 group"
-          >
-            <div class="w-full lg:w-2/5 space-y-6">
-              <div class="flex flex-wrap gap-2">
-                <span class="badge bg-primary/20 text-primary">Enterprise</span>
-                <span class="badge bg-slate-200/60 dark:bg-white/5"
-                  >Cloud Platform</span
-                >
-              </div>
-              <h3 class="text-3xl font-bold text-slate-900 dark:text-white">
-                CloudOps Monitor
-              </h3>
-              <p
-                class="text-slate-600 dark:text-gray-400 text-lg leading-relaxed"
-              >
-                Real-time infrastructure monitoring dashboard for large-scale
-                Kubernetes clusters. Reduces MTTR by 40% through intelligent
-                alerting systems.
-              </p>
-              <div class="flex items-center gap-6 pt-4">
-                <button class="btn-primary">
-                  View Project
-                  <span class="material-symbols-outlined text-lg"
-                    >open_in_new</span
-                  >
-                </button>
-                <a
-                  class="text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-white flex items-center gap-2 font-semibold transition"
-                  href="#"
-                >
-                  <span class="material-symbols-outlined text-2xl"
-                    >visibility</span
-                  >
-                  Live Demo
-                </a>
-              </div>
-            </div>
+          <!-- Project 2: The Venue Men -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
             <div
-              class="w-full lg:w-3/5 relative overflow-hidden rounded-2xl glass-card p-2 aspect-video flex items-center justify-center"
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-bl from-primary/10 to-transparent group-hover:opacity-100 opacity-0 transition-opacity"
-              ></div>
-              <img
-                alt="Enterprise monitoring dashboard"
-                class="rounded-xl shadow-2xl w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200"
-              />
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                Mobile App
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              The Venue Men
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A production-ready booking app for men-focused venues with
+              real-time communication, secure payments, and deep integration
+              into venue operations.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · iOS &amp; Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Django Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Frappe ERP</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >SkipCash Payments</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >WebSocket Chat · OneSignal</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.the.venue.men"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+              <a
+                href="https://apps.apple.com/eg/app/the-venue-men/id6758269851"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                App Store
+              </a>
             </div>
           </div>
 
-          <div class="flex flex-col lg:flex-row items-center gap-12 group">
+          <!-- Project 3: EELU Student Mobile App -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
             <div
-              class="w-full lg:w-3/5 relative overflow-hidden rounded-2xl glass-card p-2 aspect-video flex items-center justify-center"
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
             >
-              <div
-                class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent group-hover:opacity-100 opacity-0 transition-opacity"
-              ></div>
-              <img
-                alt="Lifestyle and productivity mobile application mockup"
-                class="rounded-xl shadow-2xl w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1200"
-              />
-            </div>
-            <div class="w-full lg:w-2/5 space-y-6">
-              <div class="flex flex-wrap gap-2">
-                <span class="badge bg-primary/20 text-primary">SaaS</span>
-                <span class="badge bg-slate-200/60 dark:bg-white/5"
-                  >AI Integrated</span
-                >
-              </div>
-              <h3 class="text-3xl font-bold text-slate-900 dark:text-white">
-                FocusFlow AI
-              </h3>
-              <p
-                class="text-slate-600 dark:text-gray-400 text-lg leading-relaxed"
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
               >
-                Intelligent task manager that predicts workload burnout using
-                ML. Built with a specialized Go backend and a sleek Swift UI
-                frontend.
-              </p>
-              <div class="flex items-center gap-6 pt-4">
-                <button class="btn-primary">
-                  App Store
-                  <span class="material-symbols-outlined text-lg"
-                    >download</span
-                  >
-                </button>
-                <a
-                  class="text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-white flex items-center gap-2 font-semibold transition"
-                  href="#"
-                >
-                  <span class="material-symbols-outlined text-2xl"
-                    >description</span
-                  >
-                  Docs
-                </a>
-              </div>
+                Student App
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              EELU Student Mobile App
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A scalable student mobile app serving 1,500+ active students,
+              centralizing academic data, services, and real-time communication.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Node.js Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >MongoDB</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Salesforce Integration</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.eelu.eelu_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 4: EELU Inventory Scanning Application (Inventory) -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+            <div
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                Inventory
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              EELU Inventory Scanning Application
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A barcode-based inventory management app that streamlines stock
+              tracking, committee workflows, and data-driven reporting.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Node.js Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >MongoDB</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >OneSignal Notifications</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.eelu.inventory_scanner_app"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 5: EELU Inventory Scanning Application (Internal Ops) -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+            <div
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                Internal
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              EELU Inventory Scanning Application
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              An internal mobile app supporting daily operations for 5,000+
+              university staff members, centralizing attendance, data, and
+              internal communication.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Node.js Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >MongoDB</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >OneSignal Notifications</span
+              >
+            </div>
+          </div>
+
+          <!-- Project 6: Clean Station App -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+            <div
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                On‑Demand
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Clean Station App
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A production on‑demand services application with secure in‑app
+              payments, location-based availability, and optimized ordering
+              flows on iOS and Android.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · iOS &amp; Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Laravel Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >SQL Database</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >OneSignal · Firebase Deep Links</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.googansolutions.cleanstation"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+              <a
+                href="https://apps.apple.com/sa/app/clean-station-%D9%83%D9%84%D9%8A%D9%86-%D8%B3%D8%AA%D9%8A%D8%B4%D9%86/id1670950492"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                App Store
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 7: Squeak App -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+            <div
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                Pet Care
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Squeak App
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A cross‑platform Flutter app focused on pet care management,
+              helping users stay consistent with pet routines via scheduled
+              reminders and a friendly UI.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Node.js Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >SQL Database</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >OneSignal Notifications</span
+              >
+            </div>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.softicare.squeak&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                Google Play
+              </a>
+              <a
+                href="https://apps.apple.com/eg/app/squeak-pets/id6739161083"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary px-4 py-2 text-xs tracking-widest uppercase"
+              >
+                App Store
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 8: Cash-Toggar -->
+          <div class="glass-card p-6 rounded-2xl flex flex-col h-full">
+            <div
+              class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary/40 to-slate-900/80 flex items-center justify-center aspect-video mb-6"
+            >
+              <span
+                class="text-[11px] font-semibold tracking-[0.3em] uppercase text-white/70"
+              >
+                Fintech
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="badge bg-primary/20 text-primary">Mobile</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Cash-Toggar
+            </h3>
+            <p
+              class="mt-2 text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed"
+            >
+              A full-stack fintech application delivering digital transactions
+              through mobile and web, with real-time updates, multi-payment
+              integrations, and remotely managed advertising.
+            </p>
+            <div
+              class="mt-4 flex flex-wrap gap-2 text-[11px] text-slate-500 dark:text-slate-400"
+            >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Flutter · Android</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Firebase Backend</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >Firestore · Storage</span
+              >
+              <span
+                class="px-3 py-1 bg-slate-100/70 dark:bg-white/5 rounded-full border border-slate-200/80 dark:border-white/10"
+                >OneSignal Notifications</span
+              >
             </div>
           </div>
         </div>
@@ -722,7 +1076,10 @@
         </div>
       </section>
 
-      <section id="contact" class="py-24 px-6 max-w-7xl mx-auto relative mt-10">
+      <section
+        class="py-24 px-6 max-w-7xl mx-auto relative mt-10"
+        id="contactUs"
+      >
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-3/4 bg-primary/10 blur-[120px] -z-10 rounded-full"
         ></div>
@@ -929,6 +1286,13 @@
                   href="#leadership"
                   class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
                   >Experience</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contactUs"
+                  class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                  >Contact Us</a
                 >
               </li>
             </ul>
